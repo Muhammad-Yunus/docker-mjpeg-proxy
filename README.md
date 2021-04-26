@@ -1,9 +1,14 @@
 # docker-mjpeg-proxy
 
-environment variable MJPEG_URL set:
+- Create Self-Sign-Certificate inside directory `CERT/`:
+```
+cd CERT/
+openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365
+```
+- Install & Run NodeJS MJPEG Proxy Server Docker Container :
 
 ```
-docker run -it -p 8080:8080 -e MJPEG_URL='http://192.168.66.49:2971/camera/stream'  roflmao/docker-mjpeg-proxy
+docker run -it -d -p 8081:8081 -e MJPEG_URL='YOUR_MJPEG_SOURCE_IP:8080/?action=stream' mjpeg-proxy-aarch64:latest
 ```
-
-Access MJPEG stream at http://$host:$port/index.jpg
+- Change `YOUR_MJPEG_SOURCE_IP` to IP of your MJPEG Stream Camera IP.
+- Access MJPEG stream at [https://YOUR_MJPEG_SOURCE_IP:8081/index.jpg]

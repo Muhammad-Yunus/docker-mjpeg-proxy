@@ -13,7 +13,6 @@ app.use(function(req, res, next) {
   });
 
 app.get('/index.jpg', new MjpegProxy(mjpegurl).proxyRequest);
-//app.listen(process.env.MJPEG_PORT);
 
 https.createServer({
   key: fs.readFileSync('CERT/key.pem'),
