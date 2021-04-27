@@ -10,5 +10,5 @@ openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 36
 ```
 docker run -it -d -p 8081:8081 -e MJPEG_URL='YOUR_MJPEG_SOURCE_IP:8080/?action=stream' mjpeg-proxy-aarch64:latest
 ```
-- Change `YOUR_MJPEG_SOURCE_IP` to IP of your MJPEG Stream Camera IP.
+- Change `YOUR_MJPEG_SOURCE_IP` to IP of your MJPEG Stream Camera.
 - Access MJPEG stream at [https://YOUR_MJPEG_SOURCE_IP:8081/index.jpg]()
